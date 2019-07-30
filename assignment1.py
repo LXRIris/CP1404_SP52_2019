@@ -27,11 +27,13 @@ def main_menu():
     print("A - Add places")
     print("M - Mark new place as visited")
     print("Q - Quit")
+    print("")
     menu_choice = input(">>>")
     choices = ["l", "a", "m", "q"]
     menu_choice_l = menu_choice.lower()
     while menu_choice_l not in choices:
         print("Invalid menu choice.")
+        print("")
         menu_choice = input(">>>")
         menu_choice_l = menu_choice.lower()
     while menu_choice != "q":
@@ -45,9 +47,17 @@ def main_menu():
 
 def print_places():
     print("")
+    to_visit_count = 0
     for i in range(len(individual_places_list)):
-        print("{:<8} in {:<11} priority {}".format(individual_places_list[i][0], individual_places_list[i][1],
-                                                   individual_places_list[i][2]))
+        if individual_places_list[i][3] == "n":
+            to_visit_count += 1
+            print("*{}. {:<8} in {:<11} priority {}.".format(i, individual_places_list[i][0], individual_places_list[i][1],
+                                                       individual_places_list[i][2]))
+        else:
+            print(" {}. {:<8} in {:<11} priority {}.".format(i, individual_places_list[i][0], individual_places_list[i][1],
+                                                         individual_places_list[i][2]))
+    print("")
+    print(" {} places. You still want to visit {} places.".format(len(individual_places_list), to_visit_count))
     print("")
 
 
