@@ -50,7 +50,14 @@ def main_menu():
             mark_menu()
             main_menu()
 
+    places_file = open(csv_file, 'w')
+    for place in individual_places_list:
+        for item in place:
+            places_file.write(item + ",")
 
+        places_file.write("\n")
+    places_file.close()
+    print("{} places saved to {}".format(len(individual_places_list), csv_file))
     exit("")
 
 
@@ -70,7 +77,7 @@ def print_places():
     if to_visit_count > 0:
         print(" {} places. You still want to visit {} places.".format(len(individual_places_list), to_visit_count))
     else:
-        print(" {} places. No places left to visit. WHy not add some more?".format(len(individual_places_list)))
+        print(" {} places. No places left to visit. Why not add some more?".format(len(individual_places_list)))
     print("")
 
 
