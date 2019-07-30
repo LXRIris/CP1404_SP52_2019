@@ -17,14 +17,7 @@ for i in range(len(places_list)):
 
 def main():
     print("Travel Tracker 1.0 - by Zwe Nyan Toe")
-    menu_choice = main_menu()
-    while menu_choice != "q":
-        if menu_choice == "l":
-            print_places()
-            menuchoice = main_menu()
-        if menu_choice == "a":
-            add_menu()
-
+    main_menu()
     exit("User quit program")
 
 
@@ -41,12 +34,18 @@ def main_menu():
         print("Invalid menu choice.")
         menu_choice = input(">>>")
         menu_choice_l = menu_choice.lower()
-    return menu_choice
+    while menu_choice != "q":
+        if menu_choice == "l":
+            print_places()
+            main_menu()
+        if menu_choice == "a":
+            add_menu()
+            main_menu()
 
 
 def print_places():
     print("")
-    for i in range(len(places_list)):
+    for i in range(len(individual_places_list)):
         print("{:<8} in {:<11} priority {}".format(individual_places_list[i][0], individual_places_list[i][1],
                                                    individual_places_list[i][2]))
     print("")
@@ -61,6 +60,27 @@ def add_menu():
     while new_country == "":
         print("Input cannot be blank.")
         new_country = input("Country: ")
+    new_priority = ask_for_number("Please input a priority: ")
+    print("{} in {} (priority {}) added to Travel Tracker".format(new_name, new_country, new_priority))
+    new_place = []
+    new_place.append(new_name)
+    new_place.append(new_country)
+    new_place.append(new_priority)
+    individual_places_list.append(new_place)
+
+
+def ask_for_number(message):
+    number = 0
+    try:
+        number = int(input(message))
+        while number <= 0:
+            print("Priority must be more than 0.")
+            number = int(input(message))
+    except ValueError:
+        print("Invalid input, please enter a valid number.")
+        ask_for_number(message)
+    return number
+
 
 
 
