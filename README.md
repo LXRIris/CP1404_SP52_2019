@@ -1,4 +1,4 @@
-# CP1404 2019 SP1 Assignment 1 - Travel Tracker
+# CP1404 2019 SP52 Assignment 1 - Travel Tracker
 Assignment 1 for CP1404/CP1804, IT@JCU
 
 By: Zwe Nyan Toe 
