@@ -15,7 +15,6 @@ for i in range(len(places_list)):
     individual_places_list.append(places_list[i].split(','))
 
 
-
 def main():
     print("Travel Tracker 1.0 - by Zwe Nyan Toe")
     main_menu()
@@ -50,13 +49,13 @@ def main_menu():
             mark_menu()
             main_menu()
 
-    places_file = open(csv_file, 'w')
+    write_file = open(csv_file, 'w')
     for place in individual_places_list:
         for item in place:
-            places_file.write(item + ",")
+            write_file.write(item + ",")
 
-        places_file.write("\n")
-    places_file.close()
+        write_file.write("\n")
+    write_file.close()
     print("{} places saved to {}".format(len(individual_places_list), csv_file))
     exit("")
 
@@ -66,11 +65,11 @@ def print_places():
     for i in range(len(individual_places_list)):
         if individual_places_list[i][3] == "n":
             to_visit_count += 1
-            print("*{}. {:<8} in {:<11} priority {}.".format(i+1, individual_places_list[i][0],
+            print("*{}. {:<8} in {:<11} priority {}.".format(i + 1, individual_places_list[i][0],
                                                              individual_places_list[i][1],
                                                              individual_places_list[i][2]))
         else:
-            print(" {}. {:<8} in {:<11} priority {}.".format(i+1, individual_places_list[i][0],
+            print(" {}. {:<8} in {:<11} priority {}.".format(i + 1, individual_places_list[i][0],
                                                              individual_places_list[i][1],
                                                              individual_places_list[i][2]))
     print("")
@@ -93,11 +92,7 @@ def add_menu():
     new_priority = ask_for_number("Please input a priority: ")
     print("{} in {} (priority {}) added to Travel Tracker".format(new_name, new_country, new_priority))
     print("")
-    new_place = []
-    new_place.append(new_name)
-    new_place.append(new_country)
-    new_place.append(new_priority)
-    new_place.append("n")
+    new_place = [new_name, new_country, new_priority, "n"]
     individual_places_list.append(new_place)
 
 
@@ -118,7 +113,7 @@ def mark_menu():
     print_places()
     print("Enter the number of the place to mark as visited.")
     ask_number = ask_for_number(">>>")
-    mark_number = ask_number-1
+    mark_number = ask_number - 1
     non_visited_count = 0
     for i in range(len(individual_places_list)):
         if individual_places_list[i][3] == "n":
@@ -138,10 +133,9 @@ def mark_menu():
         mark_number = ask_number - 1
     else:
         individual_places_list[mark_number][3] = "v"
-        print("{} in {} visited.".format(individual_places_list[mark_number][0], individual_places_list[mark_number][1]))
+        print(
+            "{} in {} visited.".format(individual_places_list[mark_number][0], individual_places_list[mark_number][1]))
         print("")
-
-
 
 
 if __name__ == '__main__':
