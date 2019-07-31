@@ -111,16 +111,17 @@ def ask_for_number(message):
 
 def mark_menu():
     print_places()
-    print("Enter the number of the place to mark as visited.")
-    ask_number = ask_for_number(">>>")
-    mark_number = ask_number - 1
     non_visited_count = 0
     for i in range(len(individual_places_list)):
         if individual_places_list[i][3] == "n":
             non_visited_count += 1
     if non_visited_count == 0:
         print("No unvisited places.")
-
+        print("")
+        main_menu()
+    print("Enter the number of the place to mark as visited.")
+    ask_number = ask_for_number(">>>")
+    mark_number = ask_number - 1
     while mark_number > len(individual_places_list):
         print("There aren't that many places.")
         print("Enter the number of the place to mark as visited.")
