@@ -52,7 +52,7 @@ def main_menu():
     write_file = open(csv_file, 'w')
     for place in individual_places_list:
         for item in place:
-            write_file.write(item + ",")
+            write_file.write(str(item) + ",")
 
         write_file.write("\n")
     write_file.close()
@@ -97,15 +97,17 @@ def add_menu():
 
 
 def ask_for_number(message):
-    number = 0
-    try:
-        number = int(input(message))
-        while number <= 0:
-            print("Number must be more than 0.")
+    valid = False
+    while not valid:
+        try:
             number = int(input(message))
-    except ValueError:
-        print("Invalid input, please enter a valid number.")
-        ask_for_number(message)
+            while number <= 0:
+                print("Number must be more than 0.")
+                number = int(input(message))
+                valid = True
+            valid = True
+        except ValueError:
+            print("Invalid input, please enter a valid number.")
     return number
 
 
