@@ -5,7 +5,7 @@ Date started: Does this even really matter
 GitHub URL: https://github.com/nelsonnyan2001/SP52_Prog2_Attempt
 """
 
-csv_file = 'places.csv'
+csv_file = 'Assignment/places.csv'
 places_file = open(csv_file, 'r')
 places_list_n = places_file.readlines()
 places_list = [i.replace("\n", '') for i in places_list_n]
@@ -50,9 +50,9 @@ def main_menu():
             main_menu()
 
     write_file = open(csv_file, 'w')
-    for place in individual_places_list:
-        for item in place:
-            write_file.write(str(item) + ",")
+    for j in range(len(individual_places_list)):
+        for i in range(4):
+            write_file.write(str(individual_places_list[j][i]) + ",")
 
         write_file.write("\n")
     write_file.close()
