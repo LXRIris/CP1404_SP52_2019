@@ -21,7 +21,7 @@ class PlacesList:
     def get_visited_places_count(self):
         visited_places = 0
         for place in self.places_list:
-            if place[0].status == 'y':
+            if place[0].status == 'v':
                 visited_places += 1
         return visited_places
 
