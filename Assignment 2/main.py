@@ -11,6 +11,7 @@ GitHub URL:
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.label import Label
+from kivy.uix.textinput import TextInput
 from places_list import PlacesList
 
 
@@ -19,15 +20,15 @@ class TravelTracker(App):
     def __init__(self):
         super().__init__()
         self.places_list = PlacesList()
-        self.filler = Label(text="Krappa")
+        self.sort_label = Label(text="Sort by:")
         self.filler1 = Label(text="Bruh")
-        self.filler2 = Label(text="Bruh")
-        self.filler3 = Label(text="Bruh")
-        self.filler4 = Label(text="Bruh")
-        self.filler5 = Label(text="Bruh")
-        self.filler6 = Label(text="Bruh")
-        self.filler7 = Label(text="Bruh")
-        self.filler8 = Label(text="Bruh")
+        self.add_label = Label(text="Add New Place:")
+        self.name_label = Label(text="Name: ")
+        self.text_input = TextInput(multiline=False)
+        self.country_label = Label(text="Country: ")
+        self.country_input = TextInput(multiline=False)
+        self.priority_label = Label(text="Priority: ")
+        self.priority_input = TextInput(multiline=False)
         self.filler9 = Label(text="Bruh")
         self.filler10 = Label(text="Bruh")
 
@@ -39,15 +40,15 @@ class TravelTracker(App):
         return self.root
 
     def build_widgets_left_col(self):
-        self.root.ids.left_layout.add_widget(self.filler)
+        self.root.ids.left_layout.add_widget(self.sort_label)
         self.root.ids.left_layout.add_widget(self.filler1)
-        self.root.ids.left_layout.add_widget(self.filler2)
-        self.root.ids.left_layout.add_widget(self.filler3)
-        self.root.ids.left_layout.add_widget(self.filler4)
-        self.root.ids.left_layout.add_widget(self.filler5)
-        self.root.ids.left_layout.add_widget(self.filler6)
-        self.root.ids.left_layout.add_widget(self.filler7)
-        self.root.ids.left_layout.add_widget(self.filler8)
+        self.root.ids.left_layout.add_widget(self.add_label)
+        self.root.ids.left_layout.add_widget(self.name_label)
+        self.root.ids.left_layout.add_widget(self.text_input)
+        self.root.ids.left_layout.add_widget(self.country_label)
+        self.root.ids.left_layout.add_widget(self.country_input)
+        self.root.ids.left_layout.add_widget(self.priority_label)
+        self.root.ids.left_layout.add_widget(self.priority_input)
         self.root.ids.left_layout.add_widget(self.filler9)
         self.root.ids.left_layout.add_widget(self.filler10)
 
