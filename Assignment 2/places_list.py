@@ -25,6 +25,9 @@ class PlacesList:
                 visited_places += 1
         return visited_places
 
+    def add_place(self, place, country, priority):
+        self.places_list.append([Place(place, country, priority, 'y')])
+
     def sort(self, sort_method):
         if sort_method == "Place":
             self.places_list.sort(key=lambda sort: (sort[0].place, sort[0].country))
@@ -34,6 +37,11 @@ class PlacesList:
             self.places_list.sort(key=lambda sort: (sort[0].priority, sort[0].country))
         else:
             self.places_list.sort(key=lambda i: (i[0].status, i[0].country))
+
+    def get_place(self, place):
+        for location in self.places_list:
+            if location[0].place == place:
+                return location[0]
 
     def __str__(self):
         return self.places_list
