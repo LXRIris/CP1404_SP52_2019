@@ -17,6 +17,7 @@ DONT's:
 
 DO's : 
 
+- DO ADD ALL YOUR OWN COMMENTS. COMMENTING IS EXPLAINED IN DETAIL IN YOUR ASSIGNMENT INSTRUCTIONS. DON'T FUCK AROUND WITH THIS PART.
 - Do try to write your own assignments and use this only as a marker for when you get stuck. I get it, Python's hard. But hey, I did it - you'll be able to too.
 - Do try to change all the variable names before submission. You can do this manually, or pycharm has this really nice function called refactoring where you can alter all variable names. Google "Pycharm refactor" if you don't know what I'm on about.
 - Do try to change the kivy colors. If you're really rushing the assignment, this can be done in the build_widgets functions of main.py.
