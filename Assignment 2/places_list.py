@@ -19,6 +19,16 @@ class PlacesList:
                 visited_places += 1
         return visited_places
 
+    def sort(self, sort_method):
+        if sort_method == "Place":
+            self.places_list.sort(key=lambda sort: (sort[0].place, sort[0].country))
+        elif sort_method == "Country":
+            self.places_list.sort(key=lambda sort: sort[0].country)
+        elif sort_method == "Priority":
+            self.places_list.sort(key=lambda sort: (sort[0].priority, sort[0].country))
+        else:
+            self.places_list.sort(key=lambda i: (i[0].status, i[0].country))
+
     def __str__(self):
         return self.places_list
 

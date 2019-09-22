@@ -1,7 +1,4 @@
 """
-
-ADD YOUR SHIT HERE.
-
 Name:
 Date:
 Brief Project Description:
@@ -31,7 +28,7 @@ class TravelTracker(App):
         self.country_input = TextInput(write_tab=False, multiline=False)
         self.priority_label = Label(text="Priority: ")
         self.priority_input = TextInput(write_tab=False, multiline=False)
-        self.add_button = Button(text="Add song")
+        self.add_button = Button(text="Add place")
         self.clear_button = Button(text="Clear Fields")
 
     def build(self):
@@ -53,5 +50,8 @@ class TravelTracker(App):
         self.root.ids.left_layout.add_widget(self.priority_input)
         self.root.ids.left_layout.add_widget(self.add_button)
         self.root.ids.left_layout.add_widget(self.clear_button)
+
+    def places_sort(self):
+        self.places_list.sort(self.spinner.text)
 
 TravelTracker().run()
