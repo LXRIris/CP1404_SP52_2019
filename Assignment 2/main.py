@@ -29,6 +29,7 @@ class TravelTracker(App):
         self.priority_label = Label(text="Priority: ")
         self.priority_input = TextInput(write_tab=False, multiline=False)
         self.add_button = Button(text="Add place")
+        self.top_label = Label(id="count_place_label")
         self.clear_button = Button(text="Clear Fields")
 
     def build(self):
@@ -36,6 +37,7 @@ class TravelTracker(App):
         self.root = Builder.load_file('app.kv')
         self.places_list.load_places()
         self.build_widgets_left_col()
+        self.build_widgets_right_col()
         return self.root
 
     def build_widgets_left_col(self):
@@ -51,7 +53,11 @@ class TravelTracker(App):
         self.root.ids.left_layout.add_widget(self.add_button)
         self.root.ids.left_layout.add_widget(self.clear_button)
 
-    def places_sort(self):
-        self.places_list.sort(self.spinner.text)
+    def build_widgets_right_col(self):
+        self.root.ids.top_layout.add_widget(self.top_label)
+        self.top_label.text = "To visit: {} places, {} places visited.".format(
+            str(self.places_list.get_unvisited_places_count()), self.places_list.get_visited_places_count())
+
+
 
 TravelTracker().run()

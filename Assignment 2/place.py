@@ -1,7 +1,7 @@
 """
 ADD YOUR OWN COMMENTS HERE.
 """
-class place:
+class Place:
     def __init__(self, place, country, priority, status):
         self.place = place
         self.country = country

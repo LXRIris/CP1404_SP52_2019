@@ -1,3 +1,5 @@
+from place import Place
+
 class PlacesList:
     def __init__(self):
         self.places_list = []
@@ -5,12 +7,16 @@ class PlacesList:
     def load_places(self):
         open_file = open("places.csv","r")
         for place in open_file.readlines():
-            place = place.strip()
-            file = place.strip(",")
-            place_country_priority_listed = file.split(",")
-            self.places_list.append(place_country_priority_listed)
+            file = place.split(",")
+            self.places_list.append([Place(file[0],file[1],int(file[2]),file[3].strip())])
         open_file.close()
-        return self.places_list
+
+    def get_unvisited_places_count(self):
+        unvisited_places = 0
+        for place in self.places_list:
+            if place[0].status == 'n':
+                unvisited_places += 1
+        return unvisited_places
 
     def get_visited_places_count(self):
         visited_places = 0
@@ -31,4 +37,3 @@ class PlacesList:
 
     def __str__(self):
         return self.places_list
-
